@@ -7,14 +7,14 @@ import { getStorage } from "firebase/storage";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCP_pmQCQwAVgYuC7rDqBhfpl4pn_U4SUs",
-  authDomain: "my-insta-e66dc.firebaseapp.com",
-  projectId: "my-insta-e66dc",
-  storageBucket: "my-insta-e66dc.appspot.com",
-  messagingSenderId: "539645167010",
-  appId: "1:539645167010:web:aba57c8c59679fc975defb",
-};
+const app = firebase.initializeApp({
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
+});
 
 // Initialize Firebase
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
